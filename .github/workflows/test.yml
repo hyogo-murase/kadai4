@@ -1,0 +1,19 @@
+name: run-test-saidai
+
+on:
+push:
+branches:
+- main
+
+jobs:
+test:
+runs-on: ubuntu-latest
+
+steps:
+- name: チェックアウト
+  uses: actions/checkout@v4
+- name: 実行権限を付与
+   run: chmod +x saidaikouyakusu.sh test-saidai.sh
+- name: テスト実行
+   run: ./test-saidai.sh
+
