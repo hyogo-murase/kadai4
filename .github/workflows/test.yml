@@ -1,15 +1,15 @@
 name: run-test-saidai
 
 on:
-push:
-branches:
-      - main  # ブランチ名が "main" の場合（"master" の場合は修正）
+  push:
+    branches:
+      - main  # ブランチ名が "main" の場合（"master" なら変更）
 
 jobs:
-test:
-runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-latest
 
-steps:
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
