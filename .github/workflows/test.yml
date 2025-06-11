@@ -3,17 +3,19 @@ name: run-test-saidai
 on:
 push:
 branches:
-- main
+      - main  # ブランチ名が "main" の場合（"master" の場合は修正）
 
 jobs:
 test:
 runs-on: ubuntu-latest
 
 steps:
-- name: チェックアウト
-  uses: actions/checkout@v4
-- name: 実行権限を付与
-   run: chmod +x saidaikouyakusu.sh test-saidai.sh
-- name: テスト実行
-   run: ./test-saidai.sh
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Give execute permission
+        run: chmod +x saidaikouyakusu.sh test-saidai.sh
+
+      - name: Run test script
+        run: ./test-saidai.sh
 
